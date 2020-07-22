@@ -37,7 +37,8 @@ exports.addAddress = functions.https.onCall((data,context) => {
         );
     }
     return admin.firestore().collection("user").doc(context.auth.uid).set({
-        address: [
+        pDetails:{
+            address: [
             Country = data.country,
             FullName = data.fullname,
             Street = data.street,
@@ -46,6 +47,7 @@ exports.addAddress = functions.https.onCall((data,context) => {
             City = data.city,
             State = data.state
         ]
+        }
     });
 
 });
