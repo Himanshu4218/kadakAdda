@@ -74,7 +74,7 @@ exports.decrement = functions.https.onCall((data,context) => {
     title = data.title;
     return admin.firestore.collection("user").doc(context.auth.uid).update({
         cart: {
-            title: admin.firestore.FieldValue.decrement(1)
+            title: admin.firestore.FieldValue.increment(-1)
         }
     });
 }); 
